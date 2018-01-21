@@ -1,10 +1,10 @@
 # CSCI 3130 Group Project #
 ## Contents ##
-* [Group Members](#group-members)
 * [Description](#description)
 * Tasks
   * [To-Do](#to-do)
   * [Complete](#complete)
+* [Group Members](#group-members)
 ## Description ##
 [Project Description here]
 ## To-Do ##
