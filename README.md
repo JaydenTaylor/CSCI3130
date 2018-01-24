@@ -1,4 +1,5 @@
 # CSCI 3130 Group Project #
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/T-Caines/CSCI3130.svg?columns=all)](https://waffle.io/T-Caines/CSCI3130)
 ## Contents ##
 * [Description](#description)
 * Tasks
