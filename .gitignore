@@ -1,1 +1,18 @@
+*.iml
+.gradle
+/local.properties
+
+# Ignore IDE files
+/.idea/workspace.xml
+/.idea/libraries
+.idea
+
+# Ignore mac file
 .DS_Store
+
+
+/captures
+.externalNativeBuild
+
+# Ignore all directories called build
+**/build
