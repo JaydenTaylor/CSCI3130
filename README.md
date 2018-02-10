@@ -12,8 +12,9 @@ Steps:
 2. Open `Android Studio`
 3. On welcome screen of Android Studio select `Open an existing Android Studio project`
 4. Navigate to this repo.
-5. Select directory named `code`.
-6. Press run.
+5. Select directory named `code` and press `open`. Do not select directory named `app` inside `code`.
+6. Android Studio will have to build all generated files the first time you open the project. This may take a minute or two.
+7. 
 ## Description ##
 [Project Description here]
 ## Tasks ##
