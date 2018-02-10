@@ -14,7 +14,7 @@ Steps:
 4. Navigate to this repo.
 5. Select directory named `code` and press `open`. Do not select directory named `app` inside `code`.
 6. Android Studio will have to build all generated files the first time you open the project. This may take a minute or two.
-7. 
+7. Run the app the same way you have for the assignments.
 ## Description ##
 [Project Description here]
 ## Tasks ##
