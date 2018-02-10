@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ca.dal.cs.softeng.CourseOverviewActivity">
+
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="top"
+        android:orientation="vertical"
+        android:stretchColumns="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="Days: "
+                android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/overviewDay"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:text="TR" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="Times: "
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/overviewTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="2:35pm - 3:55pm" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:text="Location: "
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/overviewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="LSC P5260" />
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_column="0"
+                android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Instructor: "/>
+
+            <TextView
+                android:id="@+id/overviewInstructor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Aljendi, S."/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_span="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:layout_gravity=""
+                android:textColor="#000000"
+                android:text="Description"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/overviewDescription"
+                android:layout_span="2"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="The course examines the process of software development, from initial planning through implementation and maintenance. A brief survey of available tools and techniques will be presented covering the topics of analysis, planning, estimating, project management, design, testing, and evaluation. Particular emphasis will be given to organizing and planning, team participation and management, top-down design and structure charts, system and information flow diagrams, walk-throughs and peer review, and testing and quality control."/>
+        </TableRow>
+
+    </TableLayout>
+</android.support.constraint.ConstraintLayout>
