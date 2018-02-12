@@ -57,4 +57,20 @@ public class CourseManagerUnitTest {
         assertEquals(true, cm.dropCourse(crn));
     }
 
+    @Test
+    public void addDuplicate() throws Exception {
+        cm.addCourse("000000");
+        assertEquals(false, cm.addCourse("000000"));
+    }
+
+    @Test
+    public void tooManyCourses() throws Exception {
+        cm.addCourse("000000");
+        cm.addCourse("000001");
+        cm.addCourse("000002");
+        cm.addCourse("000003");
+        cm.addCourse("000004");
+        assertEquals(false, cm.addCourse("000006"));
+    }
+
 }
