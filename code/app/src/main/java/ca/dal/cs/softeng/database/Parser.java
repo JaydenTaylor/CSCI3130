@@ -1,47 +1,56 @@
 package ca.dal.cs.softeng.database;
 
+import ca.dal.cs.softeng.common.Constants;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+
 /**
- * CSV file parser
+ * CSV File parser.
  */
 public class Parser {
 
-    private static final String START_LINE = "Faculty,Course_Id,Course Name,CRN,Lec Lab Tut,Section,Tme_start," +
-            "Time_end,MTWTF,Course Description,Seats Available,Enrollment,Waitlist Seats,Waitlist Enrolled,Term," +
-            "Cedit Hours,Location,Instructor ,Tuition,Campus";
-
-
-    public Database parse(String file) {
+    /**
+     * Reads the CSV file at <code>fileLocation</code> and returns a {@link Database} object containing each
+     * line of the file represented as {@link Entry} objects.
+     *
+     * @param fileLocation String pointing to location of a CSV file.
+     * @return {@link Database} object containing {@link Entry} objects for each line of the CSV file.
+     */
+    public Database parse(String fileLocation) {
         String line;
         Database database = new Database();
 
         try {
-            FileReader fileReader = new FileReader(file);
+            FileReader fileReader = new FileReader(fileLocation);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            int c = 0;
+            int count = 0;
 
             while((line = bufferedReader.readLine()) != null) {
-                if (line.equals(START_LINE)) {
+                // Skip lines that are column names
+                if (line.equals(Constants.START_LINE)) {
                     continue;
                 }
                 Entry entry = new Entry(line);
-                if (entry.valid) {
+
+                // Check if entry had the right number of columns, only use math and cs courses for now.
+                if (entry.isValid() &&
+                        (entry.get(Constants.FACULTY).equals("CSCI") || entry.get(Constants.FACULTY).equals("MATH"))) {
                     database.addEntry(entry);
-                    c++;
+                    count++;
                 }
             }
 
-            System.out.println(String.format("Read %d items from %s", c, file));
+            System.out.println(String.format("Read %d items from %s", count, fileLocation));
 
             bufferedReader.close();
         } catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file \"" + file + "\"");
+            System.out.println("Unable to open file \"" + fileLocation + "\"");
         } catch(IOException ex) {
-            System.out.println("Error reading file \"" + file + "\"");
+            System.out.println("Error reading file \"" + fileLocation + "\"");
         }
         return database;
     }
