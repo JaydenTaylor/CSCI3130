@@ -33,7 +33,7 @@
             android:parentActivityName=".CourseSearchActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CourseOverviewActivity"/>
+                android:value=".CourseOverviewActivity" />
         </activity>
         <activity
             android:name=".CourseSearchActivity"
@@ -41,6 +41,13 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CalendarActivity" />
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:parentActivityName=".LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
         </activity>
     </application>
 

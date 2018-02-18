@@ -7,49 +7,31 @@ import android.view.View;
 import android.widget.*;
 
 import java.util.HashMap;
+import static ca.dal.cs.softeng.database.Accounts.*;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private HashMap<String,String> accounts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        accounts = new HashMap<String,String>();
-        accounts.put("fred123","password");
+        init();
     }
 
     public void signIn(View view) {
         String user = ((EditText)findViewById(R.id.email_sign_in)).getText().toString();
         String password = ((EditText)findViewById(R.id.password_sign_in)).getText().toString();
 
-        if(accounts.containsKey(user) && accounts.get(user).matches(password)) {
-            validatedLogin();
+        if(checkPassword(user, password)) {
+            Intent calendar = new Intent(this, CalendarActivity.class);
+            startActivity(calendar);
         } else {
-            //do some error
+            ((TextView)findViewById(R.id.error_sign_in)).setText(" Invalid username or password ");
         }
     }
 
     public void signUp(View view) {
-        String user = ((EditText)findViewById(R.id.emial_sign_in)).getText().toString();
-        String password = ((EditText)findViewById(R.id.password_sign_in)).getText().toString();
-
-        if(!accounts.containsKey(user)) {
-            accounts.put(user,password);
-            validatedLogin();
-        } else {
-            //do some error
-        }
-    }
-    
-    /*
-        implement in a manner that allows more generic manipulation of the intent and class
-        objects being used to start the next activity
-    */
-    private void validatedLogin() {
-        Intent next = new Intent(this,CalendarActivity.class);
-        startActivity(calendar);
+        Intent signUp = new Intent(this,SignUpActivity.class);
+        startActivity(signUp);
     }
 }
