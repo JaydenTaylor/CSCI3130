@@ -1,4 +1,4 @@
-package ca.dal.cs.softeng.database;
+package ca.dal.cs.softeng.common;
 
 import java.util.HashMap;
 

@@ -6,8 +6,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.*;
 
-import java.util.HashMap;
-import static ca.dal.cs.softeng.database.Accounts.*;
+import static ca.dal.cs.softeng.common.Accounts.*;
 
 public class LoginActivity extends AppCompatActivity {
 

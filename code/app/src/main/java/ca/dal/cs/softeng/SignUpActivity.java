@@ -1,15 +1,12 @@
 package ca.dal.cs.softeng;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.HashMap;
-
-import static ca.dal.cs.softeng.database.Accounts.*;
+import static ca.dal.cs.softeng.common.Accounts.*;
 
 public class SignUpActivity extends AppCompatActivity {
 
