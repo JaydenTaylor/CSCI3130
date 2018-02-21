@@ -1,11 +1,15 @@
 package ca.dal.cs.softeng.database;
 
+import android.content.Context;
+
 import ca.dal.cs.softeng.common.Constants;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 
 /**
@@ -14,19 +18,19 @@ import java.io.IOException;
 public class Parser {
 
     /**
-     * Reads the CSV file at <code>fileLocation</code> and returns a {@link Database} object containing each
+     * Reads the CSV file at <id>fileLocation</id> and returns a {@link Database} object containing each
      * line of the file represented as {@link Entry} objects.
      *
      * @param fileLocation String pointing to location of a CSV file.
      * @return {@link Database} object containing {@link Entry} objects for each line of the CSV file.
      */
-    public Database parse(String fileLocation) {
+    public Database parse(String fileLocation, Context context) {
         String line;
         Database database = new Database();
 
         try {
-            FileReader fileReader = new FileReader(fileLocation);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            InputStream is = context.getAssets().open(fileLocation);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
             int count = 0;
 
             while((line = bufferedReader.readLine()) != null) {

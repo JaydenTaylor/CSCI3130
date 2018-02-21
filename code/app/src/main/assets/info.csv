@@ -1,0 +1,12 @@
+Faculty,Course_Id,Course Name,CRN,Lec Lab Tut,Section,Tme_start,Time_end,MTWTF,Course Description,Seats Available,Enrollment,Waitlist Seats,Waitlist Enrolled,Term,Cedit Hours,Location,Instructor ,Tuition,Campus
+CSCI,1100,Computer Science I,14728,Lec,N/A,1635,1925,00010,Placeholder,100,50,10,5,Winter,3,LSC 230,Dr. Who,T410,Halifax
+CSCI,1101,Computer Science II,20603,Lec,N/A,1635,1925,00010,Placeholder,100,50,10,5,Winter,3,LSC 230,Dr. Who,T410,Halifax
+CSCI,1107,Social Computing,14736,Lec,N/A,835,1125,01000,Placeholder,100,50,10,5,Winter,3,LSC 230,Dr. Who,T410,Halifax
+CSCI,1108,Experimental Robotics,14739,Lec,N/A,935,1025,11100,Placeholder,100,50,10,5,Winter,3,LSC 230,Dr. Who,T410,Halifax
+CSCI,1200,Intro to Comput for Non-Majors,14745,Lec,N/A,835,955,00101,Placeholder,100,50,10,5,Winter,3,LSC 230,Dr. Who,T410,Halifax
+CSCI,2100,Comm Skills: Oral/Written,14749,Lec,N/A,1135,1255,01010,Placeholder,100,50,10,5,Winter,3,LSC 230,Dr. Who,T410,Halifax
+CSCI,2110,Computer Science III,14750,Lec,N/A,1635,1725,01011,Placeholder,100,50,10,5,Winter,3,LSC 230,Dr. Who,T410,Halifax
+CSCI,2112,Discrete Structures I,20621,Lec,N/A,1135,1225,11101,Placeholder,100,50,10,5,Winter,3,LSC 230,Dr. Who,T410,Halifax
+CSCI,2113,Discrete Structures II,20622,Lec,N/A,1135,1225,11101,Placeholder,100,50,10,5,Winter,3,LSC 230,Dr. Who,T410,Halifax
+CSCI,2121,Intro-Comp Org/Assemby Lang,20623,Lec,N/A,1435,1555,01010,Placeholder,100,50,10,5,Winter,3,LSC 230,Dr. Who,T410,Halifax
+

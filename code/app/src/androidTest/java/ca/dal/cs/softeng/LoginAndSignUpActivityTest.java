@@ -39,7 +39,7 @@ public class LoginAndSignUpActivityTest {
                 .perform(clearText()).perform(typeText("password"));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.button_sign_in)).perform(click());
-        intended(hasComponent(CalendarActivity.class.getName()));
+        intended(hasComponent(MainActivity.class.getName()));
 
         Intents.release();
     }
@@ -98,7 +98,7 @@ public class LoginAndSignUpActivityTest {
                 .perform(clearText()).perform(typeText("password"));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.button_sign_in)).perform(click());
-        intended(hasComponent(CalendarActivity.class.getName()));
+        intended(hasComponent(MainActivity.class.getName()));
 
         Intents.release();
     }

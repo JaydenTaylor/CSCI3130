@@ -22,33 +22,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CalendarActivity"
-            android:parentActivityName=".LoginActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity" />
-        </activity>
-        <activity
-            android:name=".CourseOverviewActivity"
-            android:parentActivityName=".CourseSearchActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CourseOverviewActivity" />
-        </activity>
-        <activity
-            android:name=".CourseSearchActivity"
-            android:parentActivityName=".CalendarActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CalendarActivity" />
-        </activity>
-        <activity
             android:name=".SignUpActivity"
             android:parentActivityName=".LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginActivity" />
         </activity>
+	    <activity
+            android:name=".MainActivity"
+            android:parentActivityName=".LoginActivity">
+            <meta-data
+		android:name="android.support.PARENT_ACTIVITY"
+		android:value=".MainActivity" />
+        </activity>
+
     </application>
 
 </manifest>

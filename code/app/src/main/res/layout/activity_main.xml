@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ca.dal.cs.softeng.myapplication.MainActivity">
+
+  <RadioGroup
+      android:id="@+id/radioGroup"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:checkedButton="@+id/fall">
+
+    <RadioButton
+        android:id="@+id/fall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:checked="false"
+        android:onClick="changeTermFall"
+        android:text="@string/fall" />
+
+    <RadioButton
+        android:id="@+id/winter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:checked="false"
+        android:onClick="changeTermWinter"
+        android:text="@string/winter" />
+
+    <RadioButton
+        android:id="@+id/summer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:checked="false"
+        android:onClick="changeTermSummer"
+        android:text="@string/summer" />
+  </RadioGroup>
+
+  <ListView
+      android:id="@+id/list_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_alignParentStart="true"
+      android:layout_below="@+id/radioGroup"></ListView>
+
+  <Button
+      android:id="@+id/addbutton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/list_view"
+      android:layout_marginBottom="21dp"
+      android:layout_marginStart="39dp"
+      android:layout_toEndOf="@+id/radioGroup"
+      android:text="@string/addbutton"/>
+
+
+  <Button
+      android:id="@+id/dropbutton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBaseline="@+id/addbutton"
+      android:layout_alignBottom="@+id/addbutton"
+      android:layout_marginStart="39dp"
+      android:layout_toEndOf="@+id/addbutton"
+      android:text="@string/dropbutton"/>
+
+</RelativeLayout>

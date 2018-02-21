@@ -1,6 +1,7 @@
 package ca.dal.cs.softeng.database;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import ca.dal.cs.softeng.common.Constants;
 
@@ -11,7 +12,7 @@ import ca.dal.cs.softeng.common.Constants;
  *
  * This class will expand
  */
-public class Database {
+public class Database implements Iterable<Entry> {
 
     private ArrayList<Entry> content;
 
@@ -27,7 +28,7 @@ public class Database {
      * Return the {@link Entry} object at the index provided.
      *
      * @param index index of {@link Entry} object.
-     * @return {@link Entry} object at <code>index</code>.
+     * @return {@link Entry} object at <id>index</id>.
      */
     public Entry getEntry(int index) {
         return content.get(index);
@@ -55,4 +56,12 @@ public class Database {
         return string.toString();
     }
 
+    /**
+     * Makes this object iterable.
+     * @return
+     */
+    @Override
+    public Iterator<Entry> iterator() {
+        return content.iterator();
+    }
 }

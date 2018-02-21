@@ -13,6 +13,12 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <string name="thumbnail">thumbnail</string>
+    <string name="addbutton">ADD</string>
+    <string name="dropbutton">DROP</string>
+    <string name="fall">FALL</string>
+    <string name="winter">WINTER</string>
+    <string name="summer">SUMMER</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>

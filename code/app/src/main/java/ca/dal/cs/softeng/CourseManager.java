@@ -1,5 +1,8 @@
 package ca.dal.cs.softeng;
 import java.util.*;
+
+import ca.dal.cs.softeng.common.Constants;
+import ca.dal.cs.softeng.database.Entry;
 /**
  * Created by jaydentaylor on 2018-02-12.
  */
@@ -8,40 +11,104 @@ import java.util.*;
 
 public class CourseManager {
     //arraylist acts as mock database
-    public ArrayList<String> registeredCourses = new ArrayList<String>();
+    private ArrayList<String> fallCourses = new ArrayList<String>();
+    private ArrayList<String> winterCourses = new ArrayList<String>();
+    private ArrayList<String> summerCourses = new ArrayList<String>();
     //these can/will be optimized in the future
-    int courseCap = 5;
-    int courseCount = 0;
+    private int courseCap = 5;
+    private String term = "fall";
 
-    public boolean addCourse(String crn) {
-        if(!validCRN(crn))
-            return false;//error message
-        if(registeredCourses.contains(crn))
-            return false;//error message
-        if(courseCount >= courseCap)
-            return false;//error message
-        registeredCourses.add(crn);
-        courseCount++;
-        return true;
+    public void setTerm(String t) {
+        if(t.equalsIgnoreCase("fall") || t.equalsIgnoreCase("winter") || t.equalsIgnoreCase("summer"))
+            term = t;
     }
 
-    public boolean dropCourse(String crn) {
+    public String getTerm() {
+        return term;
+    }
+
+    public ArrayList<String> getFallCourses() {
+        return fallCourses;
+    }
+
+    public ArrayList<String> getWinterCourses() {
+        return winterCourses;
+    }
+
+    public ArrayList<String> getSummerCourses() {
+        return summerCourses;
+    }
+
+
+    public boolean addCourse(Entry entry) {
+        String crn = (String) entry.get(Constants.CRN);
         if(!validCRN(crn))
             return false;//error message
-        if(!registeredCourses.contains(crn))
+        switch(term) {
+            case "fall":
+                if(fallCourses.contains(crn))
+                    return false;//error message
+                if(fallCourses.size() == courseCap)
+                    return false;//error message
+                fallCourses.add(crn);
+                return true;
+            case "winter":
+                if(winterCourses.contains(crn))
+                    return false;//error message
+                if(winterCourses.size() == courseCap)
+                    return false;//error message
+                winterCourses.add(crn);
+                return true;
+            case "summer":
+                if(summerCourses.contains(crn))
+                    return false;//error message
+                if(summerCourses.size() == courseCap)
+                    return false;//error message
+                summerCourses.add(crn);
+                return true;
+        }
+        return false;
+    }
+
+    public boolean dropCourse(Entry entry) {
+        String crn = (String) entry.get(Constants.CRN);
+        if(!validCRN(crn))
             return false;//error message
-        registeredCourses.remove(crn);
-        courseCount--;
-        return true;
+        switch(term) {
+            case "fall":
+                if(!fallCourses.contains(crn))
+                    return false;//error message
+                fallCourses.remove(crn);
+                return true;
+            case "winter":
+                if(!winterCourses.contains(crn))
+                    return false;//error message
+                winterCourses.remove(crn);
+                return true;
+            case "summer":
+                if(!summerCourses.contains(crn))
+                    return false;//error message
+                summerCourses.remove(crn);
+                return true;
+        }
+        return false;
     }
 
     public static boolean validCRN(String crn) {
-        if(crn.length() != 6)
+        if(crn.length() != 5)
             return false;
         for(char c: crn.toCharArray()) {
             if(!(c >= 48 && c <= 57))//ascii values 0-9
                 return false;
         }
+        return true;
+    }
+
+    public boolean overrideCourseCap(int cap) {
+        if(cap == 6 || cap == 5)
+            courseCap = cap;
+        else
+            return false;
         return true;
     }
 }

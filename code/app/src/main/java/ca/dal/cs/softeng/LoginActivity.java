@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         String password = ((EditText)findViewById(R.id.password_sign_in)).getText().toString();
 
         if(checkPassword(user, password)) {
-            Intent calendar = new Intent(this, CalendarActivity.class);
+            Intent calendar = new Intent(this, MainActivity.class);
             startActivity(calendar);
         } else {
             ((TextView)findViewById(R.id.error_sign_in)).setText(" Invalid username or password ");
