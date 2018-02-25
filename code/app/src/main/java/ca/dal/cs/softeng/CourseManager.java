@@ -20,7 +20,7 @@ public class CourseManager {
 
     public void setTerm(String t) {
         if(t.equalsIgnoreCase("fall") || t.equalsIgnoreCase("winter") || t.equalsIgnoreCase("summer"))
-            term = t;
+            term = t.toLowerCase();
     }
 
     public String getTerm() {
@@ -103,7 +103,7 @@ public class CourseManager {
         }
         return true;
     }
-
+    //Unused, helpful for future user story
     public boolean overrideCourseCap(int cap) {
         if(cap == 6 || cap == 5)
             courseCap = cap;

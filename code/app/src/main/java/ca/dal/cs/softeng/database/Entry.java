@@ -174,4 +174,9 @@ public class Entry {
     public String toString() {
         return content.toString();
     }
+
+    //Added for testing
+    public void setCRN(String crn) {
+        content.put(Constants.CRN, crn);
+    }
 }

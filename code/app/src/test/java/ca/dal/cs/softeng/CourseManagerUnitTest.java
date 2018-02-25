@@ -1,5 +1,6 @@
 package ca.dal.cs.softeng;
-
+import ca.dal.cs.softeng.common.Constants;
+import ca.dal.cs.softeng.database.Entry;
 import org.junit.*;
 
 
@@ -10,67 +11,99 @@ import static org.junit.Assert.*;
  */
 public class CourseManagerUnitTest {
     CourseManager cm = new CourseManager();
+    Entry entry = new Entry("");
 
     @Test
     public void validateCRN() throws Exception {
-        assertEquals(true, CourseManager.validCRN("111111"));
+        assertEquals(true, CourseManager.validCRN("11111"));
     }
 
     @Test
-    public void validateCRN2() throws Exception {
-        assertEquals(false, CourseManager.validCRN("1b1111"));
+    public void validateCRNError() throws Exception {
+        assertEquals(false, CourseManager.validCRN("1b111"));
     }
 
     @Test
-    public void validateCRN3() throws Exception {
+    public void validateCRNLong() throws Exception {
         assertEquals(false, CourseManager.validCRN("123456789"));
     }
 
     @Test
-    public void validateCRN4() throws Exception {
+    public void validateCRNShort() throws Exception {
         assertEquals(false, CourseManager.validCRN("123"));
     }
 
     @Test
     public void addProper() throws Exception {
-        String crn = "100000";
-        cm.addCourse(crn);
-        assertEquals(crn, cm.registeredCourses.get(cm.registeredCourses.size()-1));
+        String crn = "10000";
+        entry.setCRN(crn);
+        cm.addCourse(entry);
+        assertEquals(crn, cm.getFallCourses().get(cm.getFallCourses().size()-1));
     }
 
     @Test
     public void addInvalid() throws Exception {
         String crn = "100000000bad";
-        assertEquals(false, cm.addCourse(crn));
+        entry.setCRN(crn);
+        assertEquals(false, cm.addCourse(entry));
     }
 
     @Test
     public void dropInvalid() throws Exception {
         String crn = "999999";
-        assertEquals(false, cm.dropCourse(crn));
+        entry.setCRN(crn);
+        assertEquals(false, cm.dropCourse(entry));
     }
 
     @Test
     public void dropValid() throws Exception {
-        String crn = "100000";
-        cm.addCourse(crn);
-        assertEquals(true, cm.dropCourse(crn));
+        String crn = "10000";
+        entry.setCRN(crn);
+        cm.addCourse(entry);
+        assertEquals(true, cm.dropCourse(entry));
     }
 
     @Test
     public void addDuplicate() throws Exception {
-        cm.addCourse("000000");
-        assertEquals(false, cm.addCourse("000000"));
+        String crn = "00000";
+        entry.setCRN(crn);
+        cm.addCourse(entry);
+        assertEquals(false, cm.addCourse(entry));
+    }
+
+    @Test
+    public void addToWinter() throws Exception {
+        cm.setTerm("Winter");
+        String crn = "10000";
+        entry.setCRN(crn);
+        cm.addCourse(entry);
+        assertEquals(crn, cm.getWinterCourses().get(cm.getWinterCourses().size()-1));
+    }
+
+    @Test
+    public void addToSummer() throws Exception {
+        cm.setTerm("Summer");
+        String crn = "10000";
+        entry.setCRN(crn);
+        cm.addCourse(entry);
+        assertEquals(crn, cm.getSummerCourses().get(cm.getSummerCourses().size()-1));
     }
 
     @Test
     public void tooManyCourses() throws Exception {
-        cm.addCourse("000000");
-        cm.addCourse("000001");
-        cm.addCourse("000002");
-        cm.addCourse("000003");
-        cm.addCourse("000004");
-        assertEquals(false, cm.addCourse("000006"));
+        entry.setCRN("00000");
+        cm.addCourse(entry);
+        entry.setCRN("00001");
+        cm.addCourse(entry);
+        entry.setCRN("00002");
+        cm.addCourse(entry);
+        entry.setCRN("00003");
+        cm.addCourse(entry);
+        entry.setCRN("00004");
+        cm.addCourse(entry);
+        entry.setCRN("00005");
+        assertEquals(false, cm.addCourse(entry));
+
     }
 
 }
