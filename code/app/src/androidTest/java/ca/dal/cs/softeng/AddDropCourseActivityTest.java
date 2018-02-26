@@ -1,5 +1,6 @@
 package ca.dal.cs.softeng;
 
+import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.rule.ActivityTestRule;
 
 import org.junit.Rule;
@@ -10,10 +11,12 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isChecked;
+import static android.support.test.espresso.matcher.ViewMatchers.isClickable;
 import static android.support.test.espresso.matcher.ViewMatchers.isNotChecked;
 import static android.support.test.espresso.matcher.ViewMatchers.isSelected;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.Matchers.anything;
+import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.*;
 
 /**
@@ -72,6 +75,13 @@ public class AddDropCourseActivityTest {
     public void dropButton() throws Exception {
         main.getActivity();
         onView(withId(R.id.dropbutton)).perform(click());
+
+    }
+// uses custom matcher in Matchers Class
+    @Test
+    public void TenCoursesDisplayed() throws Exception {
+        main.getActivity();
+        onView (withId (R.id.list_view)).check (ViewAssertions.matches (Matchers.withListSize (10)));
 
     }
 
