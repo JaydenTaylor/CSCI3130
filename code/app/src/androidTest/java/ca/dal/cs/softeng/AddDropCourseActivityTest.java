@@ -37,7 +37,6 @@ public class AddDropCourseActivityTest {
         onView(withId(R.id.fall)).check(matches(isChecked()));
         onView(withId(R.id.winter)).check(matches(isNotChecked()));
         onView(withId(R.id.summer)).check(matches(isNotChecked()));
-
     }
 
     @Test
@@ -68,21 +67,19 @@ public class AddDropCourseActivityTest {
     public void addButton() throws Exception {
         main.getActivity();
         onView(withId(R.id.addbutton)).perform(click());
-
     }
 
     @Test
     public void dropButton() throws Exception {
         main.getActivity();
         onView(withId(R.id.dropbutton)).perform(click());
-
     }
+
 // uses custom matcher in Matchers Class
     @Test
     public void TenCoursesDisplayed() throws Exception {
         main.getActivity();
         onView (withId (R.id.list_view)).check (ViewAssertions.matches (Matchers.withListSize (10)));
-
     }
 
 }

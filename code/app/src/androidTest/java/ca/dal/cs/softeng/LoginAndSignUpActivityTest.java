@@ -31,7 +31,6 @@ public class LoginAndSignUpActivityTest {
     public void LoginCorrect() {
         Intents.init();
         login.getActivity();
-
         onView(withId(R.id.email_sign_in))
                 .perform(clearText()).perform(typeText("fred123"));
         Espresso.closeSoftKeyboard();
@@ -140,7 +139,7 @@ public class LoginAndSignUpActivityTest {
         onView(withId(R.id.add_account)).perform(click());
         onView(withText(" Passwords do not match ")).check(matches(isDisplayed()));
 
-        //both user already exists and password incorrect
+        //both users already exists and password incorrect
         onView(withId(R.id.sign_up_user))
                 .perform(clearText()).perform(typeText("fred123"));
         Espresso.closeSoftKeyboard();

@@ -39,7 +39,6 @@ public class CourseManager {
         return summerCourses;
     }
 
-
     public boolean addCourse(Entry entry) {
         String crn = (String) entry.get(Constants.CRN);
         if(!validCRN(crn))

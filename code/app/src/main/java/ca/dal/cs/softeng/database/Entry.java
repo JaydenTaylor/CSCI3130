@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import ca.dal.cs.softeng.common.Constants;
 
-
 /**
  * POJ representing a single entry (line) in the database (or item set in the future).
  */

@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 //crn = (String) entry.get(Constants.CRN);
                 view.setBackgroundColor(getColor(R.color.colorBalanced));
                 prevView = view;
-
             }
         });
 

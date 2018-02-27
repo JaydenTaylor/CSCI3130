@@ -103,7 +103,6 @@ public class CourseManagerUnitTest {
         cm.addCourse(entry);
         entry.setCRN("00005");
         assertEquals(false, cm.addCourse(entry));
-
     }
 
 }
