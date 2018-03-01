@@ -6,12 +6,12 @@ import ca.dal.cs.softeng.database.Entry;
  * Created by jaydentaylor on 2018-03-01.
  */
 
-public class Class {
+public class Course {
     private String crn;
     private int timeStart;
     private int timeEnd;
 
-    public Class(Entry entry) {
+    public Course(Entry entry) {
         crn = (String) entry.get(Constants.CRN);
         String timeS = (String) entry.get(Constants.START);
         String timeE = (String) entry.get(Constants.END);
@@ -32,7 +32,7 @@ public class Class {
     }
 
     public boolean conflicting(Entry entry) {
-        Class c = new Class(entry);
+        Course c = new Course(entry);
         if(c.getTimeStart() >= timeStart && c.getTimeStart() <= timeEnd)
             return false;
         if(c.getTimeEnd() >= timeStart && c.getTimeEnd() <= timeEnd)

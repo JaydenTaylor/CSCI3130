@@ -11,9 +11,9 @@ import ca.dal.cs.softeng.database.Entry;
 
 public class CourseManager {
     //arraylist acts as mock database
-    private ArrayList<Class> fallCourses = new ArrayList<Class>();
-    private ArrayList<Class> winterCourses = new ArrayList<Class>();
-    private ArrayList<Class> summerCourses = new ArrayList<Class>();
+    private ArrayList<Course> fallCourses = new ArrayList<Course>();
+    private ArrayList<Course> winterCourses = new ArrayList<Course>();
+    private ArrayList<Course> summerCourses = new ArrayList<Course>();
     //these can/will be optimized in the future
     private int courseCap = 5;
     private String term = "fall";
@@ -27,20 +27,20 @@ public class CourseManager {
         return term;
     }
 
-    public ArrayList<Class> getFallCourses() {
+    public ArrayList<Course> getFallCourses() {
         return fallCourses;
     }
 
-    public ArrayList<Class> getWinterCourses() {
+    public ArrayList<Course> getWinterCourses() {
         return winterCourses;
     }
 
-    public ArrayList<Class> getSummerCourses() {
+    public ArrayList<Course> getSummerCourses() {
         return summerCourses;
     }
 
     public boolean addCourse(Entry entry) {
-        Class c = new Class(entry);
+        Course c = new Course(entry);
         String crn = (String) entry.get(Constants.CRN);
         if(!validCRN(crn))
             return false;//error message
@@ -71,7 +71,7 @@ public class CourseManager {
     }
 
     public boolean dropCourse(Entry entry) {
-        Class c = new Class(entry);
+        Course c = new Course(entry);
         String crn = (String) entry.get(Constants.CRN);
         if(!validCRN(crn))
             return false;//error message
@@ -105,8 +105,8 @@ public class CourseManager {
         return true;
     }
 
-    public int contains(String crn, ArrayList<Class> list) {
-        Class c;
+    public int contains(String crn, ArrayList<Course> list) {
+        Course c;
         for(int i = 0; i < list.size(); i++) {
             c = list.get(i);
             if(crn.equals(c.getCRN()))
