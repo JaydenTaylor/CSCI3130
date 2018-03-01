@@ -179,4 +179,9 @@ public class Entry {
     public void setCRN(String crn) {
         content.put(Constants.CRN, crn);
     }
+    //Added for testing
+    public void setTime(String start, String end) {
+        content.put(Constants.START, start);
+        content.put(Constants.END, end);
+    }
 }
