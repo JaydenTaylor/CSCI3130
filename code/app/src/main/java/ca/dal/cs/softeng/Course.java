@@ -34,10 +34,10 @@ public class Course {
     public boolean conflicting(Entry entry) {
         Course c = new Course(entry);
         if(c.getTimeStart() >= timeStart && c.getTimeStart() <= timeEnd)
-            return false;
+            return true;
         if(c.getTimeEnd() >= timeStart && c.getTimeEnd() <= timeEnd)
-            return false;
-        return true;
+            return true;
+        return false;
     }
 
 }
