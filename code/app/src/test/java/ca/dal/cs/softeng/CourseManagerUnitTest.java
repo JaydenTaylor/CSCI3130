@@ -127,7 +127,6 @@ public class CourseManagerUnitTest {
         entry.setCRN("00005");
         entry.setTime("0600", "0600");
         assertEquals(false, cm.addCourse(entry));
-
     }
 
 }
