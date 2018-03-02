@@ -150,7 +150,6 @@ public class Entry {
         if (currentEnrolled == 0) {
             return currentEnrolled;
         }
-
         // Decrement enrollment
         currentEnrolled--;
         content.put(Constants.WAITLIST_TAKEN, currentEnrolled);
