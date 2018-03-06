@@ -8,7 +8,9 @@ import ca.dal.cs.softeng.common.Constants;
  * POJ representing a single entry (line) in the database (or item set in the future).
  */
 public class Course {
-
+    private String crn;
+    private String startTime;
+    private String endTime;
     private HashMap<String, Object> content = new HashMap<>();
     private boolean valid = false;
 
@@ -50,6 +52,10 @@ public class Course {
             content.put(Constants.INSTRUCTOR, columns[17]);
             content.put(Constants.TUITION, columns[18]);
             content.put(Constants.CAMPUS, columns[19]);
+
+            crn = (String) get(Constants.CRN);
+            startTime = (String) get(Constants.START);
+            endTime = (String) get(Constants.END);
         }
     }
 
@@ -95,6 +101,10 @@ public class Course {
     public int getRemainingWaitlist() {
         return (int) content.get(Constants.TOTAL_WAITLIST) - (int) content.get(Constants.WAITLIST_TAKEN);
     }
+
+    public String getCRN() { return crn; }
+    public String getStartTime() { return startTime; }
+    public String getEndTime() { return endTime; }
 
     /**
      * Increase the number of people enrolled by 1 and return that number.

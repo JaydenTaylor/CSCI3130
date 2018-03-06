@@ -88,6 +88,7 @@ public class CourseManager {
 
     public boolean addCourse(Course c) {
         String crn = (String) c.get(Constants.CRN);
+        String courseName = (String) c.get(Constants.NAME);
         if(!validCRN(crn))
             return false;//error message
         switch(term) {
@@ -95,21 +96,21 @@ public class CourseManager {
                 if(fallCourses == courseCap)
                     return false;//error message
                 fallCourses++;
-                mDatabase.child("fallCourses").child(crn).setValue(c);
+                mDatabase.child("fallCourses").child(courseName).setValue(c);
                 //mDatabase.child("fallCourses").child("courseCount").setValue(fallCourses);
                 return true;
             case "winter":
                 if(winterCourses == courseCap)
                     return false;//error message
                 winterCourses++;
-                mDatabase.child("winterCourses").child(crn).setValue(c);
+                mDatabase.child("winterCourses").child(courseName).setValue(c);
                 //mDatabase.child("winterCourses").child("courseCount").setValue(winterCourses);
                 return true;
             case "summer":
                 if(summerCourses == courseCap)
                     return false;//error message
                 summerCourses++;
-                mDatabase.child("summerCourses").child(crn).setValue(c);
+                mDatabase.child("summerCourses").child(courseName).setValue(c);
                 //mDatabase.child("summerCourses").child("courseCount").setValue(summerCourses);
                 return true;
         }
@@ -118,6 +119,7 @@ public class CourseManager {
 
     public boolean dropCourse(Course c) {
         String crn = (String) c.get(Constants.CRN);
+        String courseName = (String) c.get(Constants.NAME);
         if(!validCRN(crn))
             return false;//error message
         switch(term) {
@@ -127,7 +129,7 @@ public class CourseManager {
                     return false;//error message
                 */
                 //fallCourses--;
-                mDatabase.child("fallCourses").child(crn).removeValue();
+                mDatabase.child("fallCourses").child(courseName).removeValue();
                 return true;
             case "winter":
                 /*
@@ -135,7 +137,7 @@ public class CourseManager {
                     return false;//error message
                 */
                 //winterCourses--;
-                mDatabase.child("winterCourses").child(crn).removeValue();
+                mDatabase.child("winterCourses").child(courseName).removeValue();
                 return true;
             case "summer":
                 /*
@@ -143,7 +145,7 @@ public class CourseManager {
                     return false;//error message
                 */
                 //summerCourses--;
-                mDatabase.child("summerCourses").child(crn).removeValue();
+                mDatabase.child("summerCourses").child(courseName).removeValue();
                 return true;
         }
         return false;
