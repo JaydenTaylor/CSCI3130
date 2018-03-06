@@ -7,7 +7,7 @@ import ca.dal.cs.softeng.common.Constants;
 /**
  * POJ representing a single entry (line) in the database (or item set in the future).
  */
-public class Entry {
+public class Course {
 
     private HashMap<String, Object> content = new HashMap<>();
     private boolean valid = false;
@@ -17,7 +17,7 @@ public class Entry {
      *
      * @param line Line of a CSV file with exactly 20 columns.
      */
-    public Entry(String line) {
+    public Course(String line) {
         String[] columns = line.split(",");
         if (columns.length == 20) {
             valid = true;
@@ -182,4 +182,13 @@ public class Entry {
         content.put(Constants.START, start);
         content.put(Constants.END, end);
     }
+    /*
+    public boolean conflicting(Course c) {
+        if(c.getTimeStart() >= timeStart && c.getTimeStart() <= timeEnd)
+            return true;
+        if(c.getTimeEnd() >= timeStart && c.getTimeEnd() <= timeEnd)
+            return true;
+        return false;
+    }
+    */
 }

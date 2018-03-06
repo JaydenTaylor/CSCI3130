@@ -12,25 +12,25 @@ import ca.dal.cs.softeng.common.Constants;
  *
  * This class will expand
  */
-public class Database implements Iterable<Entry> {
+public class Database implements Iterable<Course> {
 
-    private ArrayList<Entry> content;
+    private ArrayList<Course> content;
 
     protected Database() {
         content = new ArrayList<>(Constants.ESTIMATED_SIZE);
     }
 
-    protected void addEntry( Entry entry) {
+    protected void addEntry( Course entry) {
         content.add(entry);
     }
 
     /**
-     * Return the {@link Entry} object at the index provided.
+     * Return the {@link Course} object at the index provided.
      *
-     * @param index index of {@link Entry} object.
-     * @return {@link Entry} object at <id>index</id>.
+     * @param index index of {@link Course} object.
+     * @return {@link Course} object at <id>index</id>.
      */
-    public Entry getEntry(int index) {
+    public Course getEntry(int index) {
         return content.get(index);
     }
 
@@ -38,7 +38,7 @@ public class Database implements Iterable<Entry> {
      *
      * @return returns content of this database.
      */
-    public ArrayList<Entry> getContent() {
+    public ArrayList<Course> getContent() {
         return content;
     }
 
@@ -49,7 +49,7 @@ public class Database implements Iterable<Entry> {
     @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
-        for (Entry entry: content) {
+        for (Course entry: content) {
             string.append(entry);
             string.append("\n");
         }
@@ -61,7 +61,7 @@ public class Database implements Iterable<Entry> {
      * @return
      */
     @Override
-    public Iterator<Entry> iterator() {
+    public Iterator<Course> iterator() {
         return content.iterator();
     }
 }

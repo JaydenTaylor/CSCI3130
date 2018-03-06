@@ -19,10 +19,10 @@ public class Parser {
 
     /**
      * Reads the CSV file at <id>fileLocation</id> and returns a {@link Database} object containing each
-     * line of the file represented as {@link Entry} objects.
+     * line of the file represented as {@link Course} objects.
      *
      * @param fileLocation String pointing to location of a CSV file.
-     * @return {@link Database} object containing {@link Entry} objects for each line of the CSV file.
+     * @return {@link Database} object containing {@link Course} objects for each line of the CSV file.
      */
     public Database parse(String fileLocation, Context context) {
         String line;
@@ -38,7 +38,7 @@ public class Parser {
                 if (line.equals(Constants.START_LINE)) {
                     continue;
                 }
-                Entry entry = new Entry(line);
+                Course entry = new Course(line);
 
                 // Check if entry had the right number of columns, only use math and cs courses for now.
                 if (entry.isValid() &&

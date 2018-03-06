@@ -18,9 +18,9 @@ public class EntryAdapter extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<Entry> dataSource;
+    private ArrayList<Course> dataSource;
 
-    public EntryAdapter(Context context, ArrayList<Entry> data) {
+    public EntryAdapter(Context context, ArrayList<Course> data) {
         this.context = context;
         this.dataSource = data;
         inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -69,7 +69,7 @@ public class EntryAdapter extends BaseAdapter {
         TextView end = holder.end;
         TextView seats = holder.seats;
 
-        Entry entry = dataSource.get(position);
+        Course entry = dataSource.get(position);
 
         id.setText(String.format("%s%s", entry.get(Constants.FACULTY), entry.get(Constants.ID)));
         name.setText((String) entry.get(Constants.NAME));

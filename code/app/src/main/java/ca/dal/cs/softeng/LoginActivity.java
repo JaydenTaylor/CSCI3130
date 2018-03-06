@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
     private FirebaseAuth dbAuth;
-
+    private FirebaseUser account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +32,18 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseUser account = dbAuth.getCurrentUser();
+        /*
+        account = dbAuth.getCurrentUser();
         if(account != null) {
             Intent calendar = new Intent(this, MainActivity.class);
             startActivity(calendar);
         }
+        */
     }
 
     public void signIn(View view) {
+
+
         String user = ((EditText)findViewById(R.id.email_sign_in)).getText().toString();
         String password = ((EditText)findViewById(R.id.password_sign_in)).getText().toString();
 
